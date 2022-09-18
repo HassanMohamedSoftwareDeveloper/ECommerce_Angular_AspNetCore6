@@ -10,6 +10,7 @@ import { AddPropertyComponent } from './Property/add-property/add-property.compo
 import { AppRoutingModule } from './app-routing.module';
 import { PropertyDetailComponent } from './Property/property-detail/property-detail.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
     AppRoutingModule
   ],
   providers: [
