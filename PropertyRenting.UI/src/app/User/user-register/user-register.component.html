@@ -11,7 +11,7 @@
             <input type="text" class="form-control"
                    formControlName="userName">
             <span class="error-block"
-                  *ngIf="!userName.valid && userName.touched">
+                  *ngIf="!userName.valid && (userSubmitted ||userName.touched)">
               Please provide Name
             </span>
           </div>
@@ -21,7 +21,7 @@
             <input type="text" class="form-control"
                    formControlName="email">
             <span class="error-block"
-                  *ngIf="!email.valid && email.touched">
+                  *ngIf="!email.valid && (userSubmitted ||email.touched)">
               <span *ngIf="email.hasError('required')">
                 Please provide Email Id
               </span>
@@ -36,7 +36,7 @@
             <input type="text" class="form-control"
                    formControlName="password">
             <span class="error-block"
-                  *ngIf="!password.valid && password.touched">
+                  *ngIf="!password.valid && (userSubmitted ||password.touched)">
               <span *ngIf="password.hasError('required')">
                 Please provide Password
               </span>
@@ -51,7 +51,7 @@
             <input type="text" class="form-control"
                    formControlName="confirmPassword">
             <span class="error-block"
-                  *ngIf="!confirmPassword.valid && confirmPassword.touched">
+                  *ngIf="!confirmPassword.valid &&(userSubmitted ||confirmPassword.touched)">
               <span *ngIf="confirmPassword.hasError('required')">
                 Please Confirm Password
               </span>
@@ -66,7 +66,7 @@
             <input type="text" class="form-control"
                    formControlName="mobile">
             <span class="error-block"
-                  *ngIf="!mobile.valid && mobile.touched">
+                  *ngIf="!mobile.valid && (userSubmitted ||mobile.touched)">
               <span *ngIf="mobile.hasError('required')">
                 Please provide Mobile
               </span>
@@ -80,9 +80,6 @@
             <button type="submit" class="btn btn-primary">Save</button>
             <button type="reset" class="btn btn-secondary ms-2">Cancel</button>
           </div>
-          Form Values: {{registerationForm.value | json}}
-          <br />
-          Form Status: {{registerationForm.valid}}
         </form>
       </div>
     </div>

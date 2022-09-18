@@ -13,6 +13,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserLoginComponent } from './User/user-login/user-login.component';
 import { UserRegisterComponent } from './User/user-register/user-register.component';
+import { UserService } from './Services/user.service';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { UserRegisterComponent } from './User/user-register/user-register.compon
     AppRoutingModule
   ],
   providers: [
-    HousingService
+    HousingService,
+    UserService
   ],
   bootstrap: [AppComponent]
 })
