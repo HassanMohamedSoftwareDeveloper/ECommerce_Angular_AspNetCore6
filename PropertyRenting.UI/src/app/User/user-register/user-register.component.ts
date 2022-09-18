@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-user-register',
@@ -10,16 +10,27 @@ export class UserRegisterComponent implements OnInit {
 
   registerationForm: FormGroup;
 
-  constructor() { }
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
-    this.registerationForm = new FormGroup({
-      userName: new FormControl('', Validators.required),
-      email: new FormControl(null, [Validators.required, Validators.email]),
-      password: new FormControl(null, [Validators.required, Validators.minLength(8)]),
-      confirmPassword: new FormControl(null, [Validators.required]),
-      mobile: new FormControl(null, [Validators.required, Validators.minLength(11)]),
-    }, this.passwordMatchingValidator);
+    this.createRegusterationForm();
+    //this.registerationForm = new FormGroup({
+    //  userName: new FormControl('', Validators.required),
+    //  email: new FormControl(null, [Validators.required, Validators.email]),
+    //  password: new FormControl(null, [Validators.required, Validators.minLength(8)]),
+    //  confirmPassword: new FormControl(null, [Validators.required]),
+    //  mobile: new FormControl(null, [Validators.required, Validators.minLength(11)]),
+    //}, this.passwordMatchingValidator);
+  }
+
+  createRegusterationForm() {
+    this.registerationForm = this.fb.group({
+      userName: [null, Validators.required],
+      email: [null, [Validators.required, Validators.email]],
+      password: [null, [Validators.required, Validators.minLength(8)]],
+      confirmPassword: [null, Validators.required],
+      mobile: [null, [Validators.required, Validators.minLength(11)]],
+    }, { validators: this.passwordMatchingValidator });
   }
 
   passwordMatchingValidator(fg: FormGroup): Validators {
