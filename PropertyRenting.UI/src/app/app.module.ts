@@ -10,7 +10,9 @@ import { AddPropertyComponent } from './Property/add-property/add-property.compo
 import { AppRoutingModule } from './app-routing.module';
 import { PropertyDetailComponent } from './Property/property-detail/property-detail.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UserLoginComponent } from './User/user-login/user-login.component';
+import { UserRegisterComponent } from './User/user-register/user-register.component';
 
 @NgModule({
   declarations: [
@@ -20,12 +22,15 @@ import { FormsModule } from '@angular/forms';
     PropertyListComponent,
     AddPropertyComponent,
     PropertyDetailComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    UserLoginComponent,
+    UserRegisterComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule
   ],
   providers: [
