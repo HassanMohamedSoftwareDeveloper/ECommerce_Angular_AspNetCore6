@@ -14,6 +14,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserLoginComponent } from './User/user-login/user-login.component';
 import { UserRegisterComponent } from './User/user-register/user-register.component';
 import { UserService } from './Services/user.service';
+import { AlertifyService } from './Services/alertify.service';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { UserService } from './Services/user.service';
   ],
   providers: [
     HousingService,
-    UserService
+    UserService,
+    AlertifyService
   ],
   bootstrap: [AppComponent]
 })
