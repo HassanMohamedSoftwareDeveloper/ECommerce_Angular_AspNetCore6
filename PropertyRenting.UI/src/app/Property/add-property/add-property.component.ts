@@ -195,8 +195,7 @@ export class AddPropertyComponent implements OnInit {
       this.mapProperty();
       this.housingService.AddProperty(this.property);
       this.alertify.success("Success");
-
-      if (this.SellRent.value === 2) {
+      if (this.SellRent.value == 2) {
         this.router.navigate(['/rent-property']);
       }
       else {
@@ -208,7 +207,8 @@ export class AddPropertyComponent implements OnInit {
   }
 
   mapProperty(): void {
-    console.log(this.addPropertyForm);
+    this.property.Id = this.housingService.NewPropID();
+
     this.property.SellRent = +this.SellRent.value;
     this.property.BHK = this.BHK.value;
     this.property.PType = this.PType.value;
